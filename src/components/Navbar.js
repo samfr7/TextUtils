@@ -10,6 +10,7 @@ export default function Navbar(props) {
       btnColor:'warning'
     })
     props.setMode('dark')
+    document.title = 'TextUtils - Yellow'
     document.body.style.backgroundColor = '#fff907cf'
   }
   const green = ()=>{
@@ -18,6 +19,7 @@ export default function Navbar(props) {
       btnColor:'success'
     })
     props.setMode('dark')
+    document.title = 'TextUtils - Green'
     document.body.style.backgroundColor = '#47c48a'
     
   }
@@ -27,13 +29,14 @@ export default function Navbar(props) {
       btnColor:'dark'
     })
     props.setMode('dark')
+    document.title = 'TextUtils - Blue'
     document.body.style.backgroundColor = '#0dcaf0'
 
   }
   return (
     <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
       <div className="container-fluid">
-        <a className="navbar-brand" href="/">
+        <a className="navbar-brand" href="#">
           {props.title}
         </a>
         <button
@@ -50,12 +53,12 @@ export default function Navbar(props) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/">
+              <a className="nav-link active" aria-current="page" href="#">
                 Home
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/">
+              <a className="nav-link" href="#">
                 {props.aboutText}
               </a>
             </li>

@@ -40,6 +40,7 @@ function App() {
         color:'white',
         btnColor:'light'
       })
+      document.title = 'TextUtils - Dark'
       document.body.style.backgroundColor = '#14193d'
       // alertForm("Enabled Dark Mode", "success")
     }
@@ -49,6 +50,7 @@ function App() {
         color:'black',
         btnColor:'danger'
       })
+      document.title = 'TextUtils - Light'
       document.body.style.backgroundColor = 'white';
       // alertForm("Enabled Light Mode", "success")
     }
