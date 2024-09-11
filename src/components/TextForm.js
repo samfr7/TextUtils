@@ -53,16 +53,16 @@ export default function TextForm(props) {
                     onChange={handleOnChange}
                 ></textarea>
             </div>
-            <button className={`btn btn-${props.theme.btnColor} mx-2`} onClick={handleUpperCase}>To Upper Case</button>
-            <button className={`btn btn-${props.theme.btnColor} mx-2`} onClick={handleLowerCase}>To Lower Case</button>
-            <button className={`btn btn-${props.theme.btnColor} mx-2`} onClick={handleFirstLetterCaps}>To First Letter Caps</button>
-            <button className={`btn btn-${props.theme.btnColor} mx-2`} onClick={speak}>To Speak</button>
-            <button className={`btn btn-${props.theme.btnColor} mx-2`} onClick={handleClear}>To Clear</button>
+            <button disabled={text.length === 0} className={`btn btn-${props.theme.btnColor} mx-2 my-2`} onClick={handleUpperCase}>To Upper Case</button>
+            <button disabled={text.length === 0} className={`btn btn-${props.theme.btnColor} mx-2 my-2`} onClick={handleLowerCase}>To Lower Case</button>
+            <button disabled={text.length === 0} className={`btn btn-${props.theme.btnColor} mx-2 my-2`} onClick={handleFirstLetterCaps}>To First Letter Caps</button>
+            <button disabled={text.length === 0} className={`btn btn-${props.theme.btnColor} mx-2 my-2`} onClick={speak}>To Speak</button>
+            <button disabled={text.length === 0} className={`btn btn-${props.theme.btnColor} mx-2 my-2`} onClick={handleClear}>To Clear</button>
 
             <div className="my-3"  style={{color: props.theme.color}}>
                 <h3>Text Summary</h3>
-                <p>Your text contains {text.trim().split(" ")[text.trim().split(" ").length - 1] === "" ? text.trim().split(" ").length - 1 : text.trim().split(" ").length} words and {text.trim().length} characters</p>
-                <p>Less than {Math.ceil((text.trim().split(" ")[text.trim().split(" ").length - 1] === "" ? text.trim().split(" ").length - 1 : text.trim().split(" ").length) * 0.00546448087)} minutes read</p>
+                <p>Your text contains {text.trim().split(/\s/).filter((element)=>element.length !== 0).length} words and {text.trim().split(/\s/).filter((element)=>element.length !== 0).join(" ").length} characters</p>
+                <p>Less than {Math.ceil((text.trim().split(/\s/).filter((element)=>element.length !== 0).join(" ").length) * 0.00546448087)} minutes read</p>
             </div>
         </>
     );
