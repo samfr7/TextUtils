@@ -1,7 +1,35 @@
 import React from "react";
 import PropTypes from 'prop-types'
+import "../App.css";
 
 export default function Navbar(props) {
+
+  const yellow = ()=>{
+    props.setTheme({
+      color:'black',
+      btnColor:'warning'
+    })
+    props.setMode('dark')
+    document.body.style.backgroundColor = '#fff907cf'
+  }
+  const green = ()=>{
+    props.setTheme({
+      color:'black',
+      btnColor:'success'
+    })
+    props.setMode('dark')
+    document.body.style.backgroundColor = '#47c48a'
+    
+  }
+  const blue = ()=>{
+    props.setTheme({
+      color:'black',
+      btnColor:'dark'
+    })
+    props.setMode('dark')
+    document.body.style.backgroundColor = '#0dcaf0'
+
+  }
   return (
     <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
       <div className="container-fluid">
@@ -32,7 +60,7 @@ export default function Navbar(props) {
               </a>
             </li>
           </ul>
-          <form className="d-flex">
+          {/* <form className="d-flex">
             <input
               className="form-control me-2"
               type="search"
@@ -42,7 +70,11 @@ export default function Navbar(props) {
             <button className="btn btn-outline-success" type="submit">
               Search
             </button>
-          </form>
+          </form> */}
+
+          <div className="colorPallete yellow" onClick={yellow}></div>
+          <div className="colorPallete green" onClick={green}></div>
+          <div className="colorPallete blue" onClick={blue}></div>
 
           <div className={`form-check form-switch mx-2 text-${props.mode==='light'?'dark':'light'}`}>
             <input className="form-check-input" onClick={props.toggle} type="checkbox" id="flexSwitchCheckDefault" />
