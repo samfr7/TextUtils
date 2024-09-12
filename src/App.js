@@ -1,11 +1,12 @@
 // import logo from "./logo.svg";
 import "./App.css";
 import Alert from "./components/Alert";
-// import About from "./components/About";             
+import About from "./components/About";             
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
+import ErrorPage from "./components/error-page"
 import React, { useState } from 'react'
-
+import {Routes,Route} from 'react-router-dom'
 
 function App() {
 
@@ -56,6 +57,8 @@ function App() {
     }
   }
 
+
+
   return (
     <>
       {/* <Navbar title={1} aboutText="About Text-Utils"/>
@@ -65,8 +68,13 @@ function App() {
       <Navbar title="Text-Utils" aboutText="About Text-Utils" mode={mode} toggle={toggle} alert={alertForm} setTheme={setTheme} setMode={setMode}/>
       <Alert alert={alert} />
       <div className="container">
-        <TextForm theme={theme} alert={alertForm} />
-        {/* <About mode={mode}/> */}
+        <Routes>
+          <Route path="/" element={<TextForm theme={theme} alert={alertForm} />} />
+          <Route path="/about" element={<About mode={mode}/>}/>
+          <Route path="*" element={<ErrorPage/>}/>
+        </Routes>
+        
+        
       </div>
     </>
   );
